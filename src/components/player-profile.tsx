@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useGetCountry, useGetPlayer } from '../hooks/use-player';
 import useElapsedTimeSince from '../hooks/use-elapsed-time-since';
+import Timer from './timer';
 
 const BackBtn = (
   <Link to="/" className="text-blue-500 underline mb-4 inline-block">
@@ -40,7 +41,7 @@ const PlayerProfile = () => {
           <strong>Joined:</strong>{' '}
           {new Date(player.joined * 1000).toLocaleDateString()}
         </p>
-        <p className="mt-4 font-mono">⏱ Last online: {elapsed}</p>
+        <Timer timeElapsed={elapsed} />
       </div>
       <div className="max-w-xl mx-auto mt-6">{BackBtn}</div>
     </>
